@@ -196,9 +196,9 @@ function createBot(account) {
         }
 
         if (!bot.teleported) {
+            bot.startedAt = Math.floor(Date.now() / 1000);
             bot.teleported = true;
             await sleep(2800);
-            bot.startedAt = Math.floor(Date.now() / 1000);
             await tryTeleport();
         }
     });
