@@ -274,6 +274,7 @@ function createBot(account) {
 
         if (bot.teleported && bot.startedAt + 5*60 <= currentTime) {
           bot.consolelog("5 mins passed, movin")
+		  bot.startedAt = Math.floor(Date.now() / 1000);
           bot.chat("/spawn")
           await sleep(3000);
           tryTeleport();
