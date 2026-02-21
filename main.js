@@ -161,27 +161,28 @@ function createBot(account) {
 
     // ─── teleport (map) logic ─────────────────────────────────────
     async function tryTeleport() {
-        const hotbar = bot.inventory.slots.slice(36, 45);
-        const mapItem = hotbar.find(item =>
-            item && (item.name === 'filled_map' || item.name === 'map') &&
-            item.customName && stripMinecraftFormatting(item.customName).includes('Карта мира')
-        );
+        bot.chat("/home farm")
+        // const hotbar = bot.inventory.slots.slice(36, 45);
+        // const mapItem = hotbar.find(item =>
+        //     item && (item.name === 'filled_map' || item.name === 'map') &&
+        //     item.customName && stripMinecraftFormatting(item.customName).includes('Карта мира')
+        // );
 
-        if (!mapItem) {
-            bot.consolelog("No world map found in hotbar");
-            return false;
-        }
+        // if (!mapItem) {
+        //     bot.consolelog("No world map found in hotbar");
+        //     return false;
+        // }
 
-        try {
-            await bot.equip(mapItem, 'hand');
-            await sleep(400);
-            await bot.activateItem();
-            bot.consolelog("Used world map → should teleport soon");
-            return true;
-        } catch (e) {
-            bot.consolelog("Failed to use map", e.message);
-            return false;
-        }
+        // try {
+        //     await bot.equip(mapItem, 'hand');
+        //     await sleep(400);
+        //     await bot.activateItem();
+        //     bot.consolelog("Used world map → should teleport soon");
+        //     return true;
+        // } catch (e) {
+        //     bot.consolelog("Failed to use map", e.message);
+        //     return false;
+        // }
     }
 
     // ─── Events ───────────────────────────────────────────────────
