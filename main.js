@@ -206,11 +206,12 @@ function createBot(account) {
     bot.on('death', () => {
         bot.consolelog("died → will re-teleport on respawn");
         bot.teleported = false;
+        tryTeleport();
     });
 
     bot.on('message', (jsonMsg) => {
         const text = jsonMsg.toString();
-        // bot.consolelog(text);
+        bot.consolelog(text);
 
         if (text.includes('has requested to teleport to you') || text.includes('wants to teleport')) {
             bot.chat('/tpaccept');
